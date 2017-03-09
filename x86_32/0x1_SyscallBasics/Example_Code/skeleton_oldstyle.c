@@ -1,15 +1,12 @@
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 
-char shellcode[] = "";
+unsigned char shellcode[] = "";
 
-int main(void)
+main()
 {
- int *ret;
-
-    printf("%d\n",strlen(shellcode));
-    ret = (int *)&ret+2;
-    *ret = (int)shellcode;
-return 0;
+printf("Shellcode Length:  %d\n", sizeof(shellcode) - 1);
+int (*ret)() = (int(*)())shellcode;
+ret();
 }
+
+
