@@ -2,9 +2,9 @@
 
 unsigned char shellcode[] = "";
 
-main()
+int main()
 {
-printf("Shellcode Length:  %d\n", sizeof(shellcode) - 1);
+printf("Shellcode Length:  %ld\n", sizeof(shellcode) - 1);
 int (*ret)() = (int(*)())shellcode;
 ret();
 }
